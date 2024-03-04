@@ -3,8 +3,8 @@ import Searchbar from './Searchbar/Searchbar';
 import { Button } from './Button/Button.jsx';
 import { ImageGallery } from './ImageGallery/ImageGallery.jsx';
 import { Modal } from './Modal/Modal.jsx';
-import Loader from './Loader';
-import s from './App.module.css';
+import Loader from './Loader/Loader';
+// import s from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -21,7 +21,10 @@ export class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.query !== this.state.query) {
+    if (
+      prevState.query !== this.state.query ||
+      prevState.page !== this.state.page
+    ) {
       this.fetchImages();
     }
   }
@@ -81,7 +84,7 @@ export class App extends Component {
   render() {
     const { images, isLoading, showModal, largeImageURL } = this.state;
     return (
-      <div className={s.app}>
+      <div>
         <Searchbar onSubmit={this.handleSearchSubmit} />
         <ImageGallery images={images} onSelect={this.openModal} />
         {isLoading && <Loader />}
@@ -89,7 +92,7 @@ export class App extends Component {
           <Button onClick={this.loadMoreImages} />
         )}
         {showModal && (
-          <Modal largeImageURL={largeImageURL} onclose={this.closeModal} />
+          <Modal largeImageURL={largeImageURL} onClose={this.closeModal} />
         )}
       </div>
     );
