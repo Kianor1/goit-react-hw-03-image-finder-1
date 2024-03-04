@@ -43,8 +43,7 @@ export class App extends Component {
 
   fetchImages = async () => {
     const { query, page } = this.state;
-    const BASE_URL =
-      'https://pixabay.com/api/?q=cat&page=1&key=42111454-a6064c7507ecd0abc8356168a&image_type=photo&orientation=horizontal&per_page=12';
+    const BASE_URL = `https://pixabay.com/api/?q=${query}&page=${page}&key=42111454-a6064c7507ecd0abc8356168a&image_type=photo&orientation=horizontal&per_page=12`;
 
     this.setState({ isLoading: true });
 
