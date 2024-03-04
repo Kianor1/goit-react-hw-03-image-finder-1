@@ -4,7 +4,6 @@ import { Button } from './Button/Button.jsx';
 import { ImageGallery } from './ImageGallery/ImageGallery.jsx';
 import { Modal } from './Modal/Modal.jsx';
 import Loader from './Loader/Loader';
-// import s from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -21,10 +20,7 @@ export class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.query !== this.state.query ||
-      prevState.page !== this.state.page
-    ) {
+    if (prevState.query !== this.state.query) {
       this.fetchImages();
     }
   }
