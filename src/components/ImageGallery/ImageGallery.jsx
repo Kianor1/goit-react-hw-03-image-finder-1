@@ -1,11 +1,13 @@
 import React from 'react';
 import s from './ImageGallery.module.css';
-import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem.jsx';
+import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem.jsx';
 
-export const ImageGallery = () => {
+export const ImageGallery = ({ images, onSelect }) => {
   return (
     <ul className={s.gallery}>
-      <ImageGalleryItem />
+      {images.map(image => (
+        <ImageGalleryItem key={image.id} image={image} onSelect={onSelect} />
+      ))}
     </ul>
   );
 };
