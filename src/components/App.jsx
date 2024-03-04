@@ -3,9 +3,8 @@ import Searchbar from './Searchbar/Searchbar';
 import { Button } from './Button/Button.jsx';
 import { ImageGallery } from './ImageGallery/ImageGallery.jsx';
 import { Modal } from './Modal/Modal.jsx';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Loader from './Loader';
 import s from './App.module.css';
-// import Loader from './Loader';
 
 export class App extends Component {
   state = {
@@ -71,7 +70,7 @@ export class App extends Component {
     this.fetchImages();
   };
 
-  openModal = () => {
+  openModal = largeImageURL => {
     this.setState({ largeImageURL, showModal: true });
   };
 
