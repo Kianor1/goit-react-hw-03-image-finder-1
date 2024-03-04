@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Searchbar from './Searchbar/Searchbar';
+import { Button } from './Button/Button.jsx';
 
 export class App extends Component {
   state = {
@@ -11,6 +13,11 @@ export class App extends Component {
   };
 
   render() {
-    return <div>App</div>;
+    return (
+      <div>
+        <Searchbar />
+        <Button />
+      </div>
+    );
   }
 }
